@@ -24,18 +24,15 @@ export default class ShoppingCart extends Component {
   };
   render() {
     return (
-      <div>
+      <div className="container-fluid">
         <h4>Carrito de Compras</h4>
 
-        <div>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
           {this.state.products.map((prod) => {
             return (
-              <Product
-                key={prod.id}
-                id={prod.id}
-                productName={prod.productName}
-                price={prod.price}
-              />
+              <Product key={prod.id} product={prod}>
+                <button className="btn btn-primary">Compra aquí</button>
+              </Product>
             );
           })}
         </div>
