@@ -30,7 +30,12 @@ export default class ShoppingCart extends Component {
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
           {this.state.products.map((prod) => {
             return (
-              <Product key={prod.id} product={prod}>
+              <Product
+                key={prod.id}
+                product={prod}
+                onIncrement={this.handleIncrement}
+                onDecrement={this.handleDecrement}
+              >
                 <button className="btn btn-primary">Compra aquí</button>
               </Product>
             );
@@ -39,4 +44,39 @@ export default class ShoppingCart extends Component {
       </div>
     );
   }
+  // render termina aquí
+
+  // se ejecuta cuando le da +
+
+  handleIncrement = (product) => {
+    /*   console.log("handleIncrement", product);
+    product.quantiy = product.quantiy + 1; 
+    
+    obtener el index de los productos*/
+    let allProducts = [...this.state.products];
+    let index = allProducts.indexOf(product);
+    // console.log(allProducts[index]);
+
+    allProducts[index].quantity++;
+    // actualiza el estado del componente actual
+
+    this.setState({ products: allProducts });
+  };
+
+  // se ejecuta cuando le da -
+
+  handleDecrement = (product) => {
+    /*   console.log("handleIncrement", product);
+    product.quantiy = product.quantiy + 1; 
+    
+    obtener el index de los productos*/
+    let allProducts = [...this.state.products];
+    let index = allProducts.indexOf(product);
+    // console.log(allProducts[index]); console.log("handleDecrement", product);
+
+    allProducts[index].quantity--;
+    // actualiza el estado del componente actual
+
+    this.setState({ products: allProducts });
+  };
 }
