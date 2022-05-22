@@ -48,7 +48,7 @@ export default class ShoppingCart extends Component {
 
   // se ejecuta cuando le da +
 
-  handleIncrement = (product) => {
+  handleIncrement = (product, maxValue) => {
     /*   console.log("handleIncrement", product);
     product.quantiy = product.quantiy + 1; 
     
@@ -65,7 +65,7 @@ export default class ShoppingCart extends Component {
 
   // se ejecuta cuando le da -
 
-  handleDecrement = (product) => {
+  handleDecrement = (product, minValue) => {
     /*   console.log("handleIncrement", product);
     product.quantiy = product.quantiy + 1; 
     
