@@ -56,11 +56,12 @@ export default class ShoppingCart extends Component {
     let allProducts = [...this.state.products];
     let index = allProducts.indexOf(product);
     // console.log(allProducts[index]);
+    if (allProducts[index].quality < maxValue) {
+      allProducts[index].quantity++;
+      // actualiza el estado del componente actual
 
-    allProducts[index].quantity++;
-    // actualiza el estado del componente actual
-
-    this.setState({ products: allProducts });
+      this.setState({ products: allProducts });
+    }
   };
 
   // se ejecuta cuando le da -
@@ -73,10 +74,13 @@ export default class ShoppingCart extends Component {
     let allProducts = [...this.state.products];
     let index = allProducts.indexOf(product);
     // console.log(allProducts[index]); console.log("handleDecrement", product);
+    if (allProducts[index].quantity > minValue) {
+      allProducts[index].quantity--;
+      // actualiza el estado del componente actual
 
-    allProducts[index].quantity--;
-    // actualiza el estado del componente actual
-
-    this.setState({ products: allProducts });
+      this.setState({ products: allProducts });
+    }
   };
+
+  // se ejecuta cuando usuario le da en X al componente Producto
 }
