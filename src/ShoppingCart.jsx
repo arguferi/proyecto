@@ -35,6 +35,7 @@ export default class ShoppingCart extends Component {
                 product={prod}
                 onIncrement={this.handleIncrement}
                 onDecrement={this.handleDecrement}
+                onDelete={this.handleDelete}
               >
                 <button className="btn btn-primary">Compra aquí</button>
               </Product>
@@ -77,10 +78,20 @@ export default class ShoppingCart extends Component {
     if (allProducts[index].quantity > minValue) {
       allProducts[index].quantity--;
       // actualiza el estado del componente actual
-
       this.setState({ products: allProducts });
     }
   };
 
   // se ejecuta cuando usuario le da en X al componente Producto
+  handleDelete = (product) => {
+    //  obtener el index de los productos*/
+    let allProducts = [...this.state.products];
+    let index = allProducts.indexOf(product);
+
+    // borrar productos basados en index
+    allProducts.splice(index, 1);
+
+    //actualizar el estado del componente actual
+    this.setState({ products: allProducts });
+  };
 }
