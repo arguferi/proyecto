@@ -46,7 +46,7 @@ export default class CustomersList extends Component {
   render() {
     return (
       <div>
-        <h4 className="m-1 m-1 p-1">
+        <h4 className="m-1 p-1">
           {this.state.pageTitle}
 
           <span className="badge bg-primary m-2">
@@ -101,7 +101,7 @@ export default class CustomersList extends Component {
             <div>
               <button
                 className="btn btn-sm btn-secondary"
-                onClick={(cust) => {
+                onClick={() => {
                   this.onChangePictureClick(cust, index);
                 }}
               >
